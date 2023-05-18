@@ -1,0 +1,114 @@
+/*updated style sheet*/
+.container {
+    margin: 0 auto;
+    display: flex;
+    align-self: baseline;
+    padding: 20px;
+    width: 40%;
+}
+.form_body {
+    align-self: center;
+    width: 50%;
+    padding: 100px;
+    padding-top: 20px;
+    color: #ffffff;
+    background-color: black;
+    border: 5px solid red;
+    border-radius: 20px ;
+    padding-bottom: 20px;
+}
+.form_head {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 200px;
+    text-transform: capitalize;
+    text-shadow: 0 0 50px  rgb(252, 250, 250);
+    align-content: baseline;
+}
+
+.form_input:hover{
+    box-shadow: 0 0 10px white;
+}
+a:link {
+    text-decoration: none;
+    color: rgb(2, 240, 66);
+}
+a:hover {
+    text-decoration: underline;
+    
+    text-shadow: 7px 5px 50px rgb(3, 243, 19);
+} 
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.button_container {
+    text-align: center;
+    padding-top: 30px;
+}
+.form_button{
+    
+  background-color: #4CAF50;
+  position: relative;
+  color: white;
+  padding: 14px 20px;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+.form_button:focus {
+  box-shadow: 0px 0px 15px rgb(167, 225, 167);
+}
+.form_button:hover {
+    background-color: darkgreen;
+}
+@media screen and (max-width: 1000px) {
+  .form_input {
+  width: 300px;
+  border-radius: 50px;
+  margin-left: 10px;
+  margin-right: 0;
+  padding-right: 0;
+  }
+   .form_body {
+    padding-left: 10px;
+    
+   }
+   .button_container {
+    padding-left: 35%;
+   }
+   .container {
+    margin-left: 40%;
+   }
+ }
+ .popup {
+  
+  display: block;
+  text-align: center;
+  width: 300px;
+  height: 30px;
+  color: #ffffff;
+  background-color: #4CAF50;
+  border: 5px solid rgb(2, 254, 2);
+  border-radius: 30px;
+  padding: 20px;
+  padding-top:0;
+  position:fixed;
+  margin-top: 30%;
+ }
+
+ 
+  

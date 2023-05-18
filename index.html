@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form id="signup" method="POST">
+            <div class="form_body">
+                <div class="form_head">Sign up <br><br> </div>
+                <!--First name input-->
+                <i class="fa fa-user-circle"><br></i>
+                <label for="name"> First Name</label>
+                <input 
+                   type="text" 
+                   name="Name" 
+                   class="form_input" 
+                   placeholder="Name"
+                   pattern="[A-z]+[a-z]"
+                   title="Start with a capital letter"
+                   required>            
+                <span class="form_underline"></span>
+                <!--Last name input-->
+                <i class="fa fa-user"></i>
+                <label for="name"> Last Name</label>
+                <input 
+                   type="text" 
+                   name="Surname" 
+                   class="form_input" 
+                   placeholder="Surname" 
+                   required>
+                <span class="form_underline"></span>
+                <!--email input-->
+                <i class="fa fa-envelope"></i>
+                <label for="email"> Email</label>
+                <input 
+                   type="email" 
+                   name="email" 
+                   class="form_input" 
+                   placeholder="my_email@xmail.com" 
+                   pattern="[a-z0-p._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                   title="Make sure you provide a valid email address"
+                   required>
+                <span class="form_underline"></span>
+                <!--cellphone numbers input-->
+                <i class="fa fa-phone"></i>
+                <label for="cellphone"> Cellphone</label>
+                <input 
+                   type="tel" 
+                   name="cellphone" 
+                   class="form_input" 
+                   placeholder="+000 000 00 000"> 
+                   <div class="button_container">
+                    <button
+                    type="submit" 
+                   class="form_button" form="signup">Sign up</button>
+            <p class="login">Login if you already have an account. <a href="http://" target="_blank" rel="noopener noreferrer">Login</a></p>   
+       
+                   </div>
+          </form>      
+    </div>
+    <div class="popup" id="popup">
+        <i class="fa fa-okay"></i>
+    </div>
+    
+</body>
+<script>
+    $(document).ready(function(){
+        $("#popup").hide();
+        $("#signup").submit(function(e){
+            e.preventDefault();
+            
+            $.ajax({
+                url: 'actions.php?action=signup',
+                data: new FormData($(this)[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST',
+                success: function(resp){
+                    
+                    if(resp == 1){
+                        $("#popup").show();
+                        $("#popup").html("You have successfully signed up.");
+
+                        setInterval(function(){
+                            $("#popup").hide();
+                        }, 2000);
+                        
+                        
+                    }else if(resp == 0){
+                        $("#popup").show();
+                        $("#popup").html("Something went wrong. Please try again.");
+
+                        setInterval(function(){
+                            $("#popup").hide();
+                        }, 2000);
+                    }else{
+                        $("#popup").show();
+                        $("#popup").html("An unkown error occured. Please ty again later.");
+
+                        setInterval(function(){
+                            $("#popup").hide();
+                        }, 2000);
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>
